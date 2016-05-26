@@ -1,0 +1,249 @@
+%% 
+%%	This is file 'beamer_sample.tex'
+%%	according to an MPIDR's PowerPoint template (?)
+%%	
+%%	by Eric Naujoks
+%%
+%%	Problems, bugs and comments to 
+%%	naujoks@demogr.mpg.de
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	Praelegomena								%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	- Make sure that you use utf8-encoding for all your .tex-files!!! (TeXnicCenter since version 2.0)
+%%	- TeXnicCenter update: MPIDR intranet > Hard- & Sortfware > Software > Script and text editors > TeXnicCenter
+
+\documentclass[20pt]{beamer}
+
+\usepackage[ngerman,english]{babel}
+\usepackage{tikz}
+\usepackage[normalem]{ulem}
+\geometry{paperwidth=10in, paperheight=7.5in}
+\usepackage{animate}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[mpidr]{./mpidr/beamerthemeMPIDR}
+
+%% Declaring title and author
+\title{A selection of viz problems\\ from demography}
+\subtitle{Tim Riffe}		%%
+
+%%	the institute's logo
+\renewcommand{\mylogo}{\includegraphics[width=4.7in]{mpidr_logo_colour_en}}
+\usepackage{color}
+\definecolor{mygray}{rgb}{0.8,0.8,0.8}
+
+\defbeamertemplate{description item}{align left}{\insertdescriptionitem\hfill}
+%%	should be the very last package to be loaded
+\usepackage{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	Beginning of the document		%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%	titlepage - fixed frame:
+%%	========================
+
+\begin{frame}
+	\titlepage
+\end{frame}
+%-------------------
+
+\begin{frame}
+\frametitle{dimensions and states}
+\vspace{-10em}
+\begin{center}
+\hspace*{-6cm}\includegraphics[scale=.7]{Figures/prism.jpg}
+\end{center}
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{Problem I}
+\begin{block}{Time $\rightarrow$ coordinates}
+Many time measures implies many
+redundant coordinates. Demographers work under reduced dimensionality due to
+convenience and tradition. Lots of coordinates ignored.
+\end{block}
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{Time dimensions}
+\begin{itemize}[<+->]
+  \item A: chronological age (time since event)
+  \item P: period, calendar year 
+  \item C: birth cohort (entry time)
+  \item T: time until death (time until event)
+  \item D: death cohort = year of death (exit time)
+  \item L: ultimate complete lifespan (exposure time)
+\end{itemize}
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{A demographic time identity (coordinates!)}
+\vspace{-4em}
+\begin{center}
+\includegraphics[scale=1.7]{Figures/TetraHedronEdgesOnly.pdf}
+\end{center}
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{Dataviz in APC coordinates goes way back}
+\begin{center}
+\includegraphics[trim 100 100 300
+300,scale=.5]{Figures/Perozzo1000px_cropped_adj.png}
+\end{center}
+\end{frame}
+%-------------------
+
+\begin{frame}
+\frametitle{And it's still in development: Francis (1996)}
+\begin{center}
+\includegraphics[scale=.8]{Figures/LexisPencil.png}
+\end{center}
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{And still: Sch{\"o}ley (2015)}
+\begin{center}
+\includegraphics[scale=.8]{Figures/JonasPAA2015.png}
+\end{center}
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{And still: Sch{\"o}ley (2016)}
+\begin{center}
+\hspace*{-1.3cm}\includegraphics[scale=.6]{Figures/HMDexplorer.png}
+\end{center}
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{But what about those other coordinates?}
+\vspace{-4em}
+\begin{center}
+\includegraphics[scale=1.7]{Figures/TetraHedronEdgesOnly.pdf}
+\end{center}
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{We end up with intersecting planes in 3d}
+\vspace{-4em}
+\begin{center}
+\includegraphics[scale=.8]{Figures/TALisomarkedup2PAA.pdf}
+\end{center}
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{Problems with dimensionality}
+\begin{itemize}[<+->]
+  \item many potential coordinates
+  \item dimensionality compounds if we anchor other durations (marriage,
+  employment, sickness, etc.) = hyperspace problem.
+  \item easy to fill the space with info (magnitude, intensity, count, fraction)
+  \item data on planes work in contours, heatmaps, perspective renderings, but\ldots
+  \item what about people that don't think spatially?
+  \item toggle between planes? interactive exploration? respect 3d?
+  \item pattern detection of this kind simply isn't happening
+\end{itemize}
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{Problem II}
+\begin{block}{Time $\rightarrow$ functional remapping}
+Any time-indexed function can be used to distort time coordinates on some other
+comparable scale. Lack standards, examples, tools.
+\end{block}
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{Coordinate transformation I}
+\vspace{-4em}
+\begin{center}
+\includegraphics[scale=.9]{Figures/FertAPC.pdf}
+\end{center}
+Age, Period surface of Swedish fertility (cohort implied)
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{Coordinate transformation II}
+\vspace{-4em}
+\begin{center}
+\includegraphics[scale=.9]{Figures/FertQuant.pdf}
+\end{center}
+Age $\Leftrightarrow$ survival quantiles\\
+Reprojection of Swedish fertility surface
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{Coordinate transformation III}
+\vspace{-4em}
+\begin{center}
+\includegraphics[scale=.9]{Figures/prospectiveAgeLexis.pdf}
+\end{center}
+Age $\Leftrightarrow$ Remaining life expectancy 
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{Time coordinate transformation}
+\begin{itemize}[<+->]
+  \item any function that maps to any time index (APCTDL, or analogs)
+  \item beyond monotonic mappings? (overlap? curl?)
+  \item units and proportionality potentially lost
+  \item pattern detection of this kind simply isn't happening
+\end{itemize}
+\end{frame}
+
+%-------------------
+
+\begin{frame}
+\frametitle{dimensions and states}
+\vspace{-10em}
+\begin{center}
+\hspace*{-6cm}\includegraphics[scale=.7]{Figures/prism.jpg}
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	End of the document			%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+
+
+
+
+
+
+
+
+
