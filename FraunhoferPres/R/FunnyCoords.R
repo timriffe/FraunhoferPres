@@ -1,5 +1,5 @@
 
-setwd("/home/tim/workspace/FraunhoferPres")
+setwd("/home/tim/git/FraunhoferPres/FraunhoferPres")
 
 # time (APCTDL) can be an absolute coordinate, but anything that maps
 # to a time dimension can itself become a coordinate on which to 
@@ -225,6 +225,30 @@ filled.contour(as.integer(colnames(FX)),as.numeric(rownames(FX)),t(FX),
 dev.off()
 
 
+#############################3
+# for blog:
 
+png("Figures/FertQuant.png",width=1000,height=600)
+par(mai=c(.8,.8,.5,.5))
+filled.contour(as.integer(colnames(QuantF)),as.numeric(rownames(QuantF))*100,t(QuantF),
+		color=colRamp, xlab = "Year",
+		ylab = "percent surviving",key.title = title("Fertility
+						rate"),plot.axes = { contour(as.integer(colnames(QuantF)),as.numeric(rownames(QuantF))*100,t(QuantF), 
+					drawlabels = TRUE, axes = FALSE, 
+					frame.plot = FALSE, add = TRUE,
+					labcex = 1, col = "#00000040");
+			axis(1); axis(2)})
+dev.off()
 
-
+png("Figures/FertAPC.png",width=1000,height=600)
+par(mai=c(.8,.8,.5,.5), xaxs='i',yaxs='i')
+filled.contour(as.integer(colnames(FX)),as.numeric(rownames(FX)),t(FX),
+		asp=1,color=colRamp, xlab = "Year",
+		ylab = "Age",key.title = title("Fertility
+						rate"),ylim=c(0,70),
+		plot.axes = { contour(as.integer(colnames(FX)),as.integer(rownames(FX)),t(FX), 
+					drawlabels = TRUE, axes = FALSE, 
+					frame.plot = FALSE, add = TRUE,
+					labcex = 1, col = "#00000040");
+			axis(1); axis(2)})
+dev.off()
